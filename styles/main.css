@@ -165,4 +165,10 @@ form button:hover {
 #myModalLabel {
   font-weight: 900; }
 
+#favorites-filter-button a {
+  padding-bottom: 0px; }
+
+.star-rating {
+  margin: 0px -64px; }
+
 /*# sourceMappingURL=main.css.map */
