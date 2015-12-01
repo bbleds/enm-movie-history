@@ -12,7 +12,7 @@ define(function(require) {
 
 	return function (userid, range) {
 	var deferred = Q.defer();
-			var ref = new Firebase("https://movie-history-enm.firebaseio.com/collections/" + userid);
+			var ref = new Firebase("https://cbs-movieclone.firebaseio.com/collections/" + userid);
 			ref.on("value", function(snapshot) {
 				var collectionsRef = snapshot.val();
 				console.log("collectionsRef", collectionsRef);

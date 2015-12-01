@@ -23,7 +23,7 @@ function authDataCallback(authData) {
   }
 }
 // Register the callback to be fired every time auth state changes
-var ref = new Firebase("https://movie-history-enm.firebaseio.com/");
+var ref = new Firebase("https://cbs-movieclone.firebaseio.com/");
 ref.onAuth(authDataCallback);
 
 });

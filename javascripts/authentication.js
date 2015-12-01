@@ -20,7 +20,7 @@ define(function(require) {
 	return {
 		createNewUser: function(newEmail, newPassword) {
 			console.log("got in");
-			var ref = new Firebase("https://movie-history-enm.firebaseio.com/");
+			var ref = new Firebase("https://cbs-movieclone.firebaseio.com/");
 			ref.createUser({
 			  email    : newEmail,
 			  password : newPassword
@@ -37,7 +37,7 @@ define(function(require) {
 			    console.log("Successfully created user account with uid:", authData.uid);
 			    // create object and new firebase ref to update database with user info
 			    var uid = authData.uid;
-			    var newfbRef = new Firebase("https://movie-history-enm.firebaseio.com/users/" + uid);
+			    var newfbRef = new Firebase("https://cbs-movieclone.firebaseio.com/users/" + uid);
 			    var userData = {
 			    	"user": uid,
 			    	"email": newEmail,

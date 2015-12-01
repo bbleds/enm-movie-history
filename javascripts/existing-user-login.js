@@ -20,7 +20,7 @@ define(function(require) {
 
 	return {
 		logUserIn: function(userEmail, userPassword) {
-			var ref = new Firebase("https://movie-history-enm.firebaseio.com/");
+			var ref = new Firebase("https://cbs-movieclone.firebaseio.com/");
 			// loggedinuser = ref;
 			ref.authWithPassword({
 			  email    : userEmail,
@@ -51,7 +51,7 @@ define(function(require) {
 		},
 		logUserOut: function() {
 			// console.log("loggedinuser", loggedinuser);
-			var ref = new Firebase("https://movie-history-enm.firebaseio.com/");
+			var ref = new Firebase("https://cbs-movieclone.firebaseio.com/");
 			ref.unauth();
 			if (ref.getAuth() === null) {
 				console.log("logged out");
@@ -66,7 +66,7 @@ define(function(require) {
 			}
 		},
 		getUid: function() {
-			var ref = new Firebase("https://movie-history-enm.firebaseio.com/");
+			var ref = new Firebase("https://cbs-movieclone.firebaseio.com/");
 			var authData = ref.getAuth();
 			var thisUser = authData.uid;
 			return thisUser;

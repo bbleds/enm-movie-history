@@ -206,14 +206,42 @@ define(function(require) {
 
 
   //----- DELETE MOVIE FROM COLLECTION ------//
+  // $(document).on('click', '.glyphicon-remove', function(event) {
+  //   //target movie and user ids
+  //   var thisMovie = event.target.id;
+  //   console.log("this movie", thisMovie);
+  //   var userID = userLogin.getUid();
+  //   console.log("this user", userID);
+  //   //delete movie from the display but it will remain in the user DB firebase
+  //   // with a bolean key value pair of "Deleted" and true -ssk
+  //   deleteMovie(userID, thisMovie);
+  //   //repopulate page with new results
+  //   populateAllPage(userID)
+  //     .then(function(data) {
+  //         var allUserMovies = Object.keys( data ).map(function(key) { return data[key];});
+  //         var sortedResults = _.sortBy(allUserMovies, "Title");
+  //         getposter.requestData(sortedResults);
+  //   });
+  // });//--end delete movie from collection
+
+
+  // *********MODAL SHOW/HIDE************//
+  // $(document).on('click', '.img', function(event) {
+  //   var thisthing = event.target;
+  //   var thisModal = $(thisthing).attr("data-target");
+  //   thisModal = '"' + thisModal + '"';
+  //   console.log("this Modal", thisModal);
+  //   $(thisModal).modal("show");
+  // });//--end img click to show modal
+
+//----- DELETE MOVIE FROM COLLECTION ------//
   $(document).on('click', '.glyphicon-remove', function(event) {
     //target movie and user ids
     var thisMovie = event.target.id;
     console.log("this movie", thisMovie);
     var userID = userLogin.getUid();
     console.log("this user", userID);
-    //delete movie from the display but it will remain in the user DB firebase
-    // with a bolean key value pair of "Deleted" and true -ssk
+    //delete movie from firebase
     deleteMovie(userID, thisMovie);
     //repopulate page with new results
     populateAllPage(userID)
@@ -233,8 +261,6 @@ define(function(require) {
     console.log("this Modal", thisModal);
     $(thisModal).modal("show");
   });//--end img click to show modal
-
-
 
 
   //********* NAV LINK EVENT HANDLERS ************//

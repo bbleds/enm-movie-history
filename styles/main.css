@@ -171,4 +171,16 @@ form button:hover {
 .star-rating {
   margin: 0px -64px; }
 
+#movie-box {
+  position: relative;
+  z-index: 1; }
+
+.x-icon {
+  position: absolute;
+  top: 0px;
+  z-index: 2; }
+
+#movie-parent {
+  position: relative; }
+
 /*# sourceMappingURL=main.css.map */

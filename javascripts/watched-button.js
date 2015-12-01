@@ -3,7 +3,7 @@ define(function(require) {
 
 	return function (userid, movieID) {
 
-			var userRef = new Firebase("https://movie-history-enm.firebaseio.com/collections/" + userid );
+			var userRef = new Firebase("https://cbs-movieclone.firebaseio.com/collections/" + userid );
 			var movieRef = userRef.child(movieID);
 			movieRef.update({
   				"Watched": true
