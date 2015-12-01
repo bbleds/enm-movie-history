@@ -121,7 +121,8 @@ define(function(require) {
             "Watched": false,
             "Rating": 0,
             "url" : posterURL,
-            "imdbID" : data.imdbID
+            "imdbID" : data.imdbID,
+            "Deleted": false
           };
           addMovieToFirebase.pushData(userid, data.imdbID, addedMovieObj);
 
@@ -211,7 +212,8 @@ define(function(require) {
     console.log("this movie", thisMovie);
     var userID = userLogin.getUid();
     console.log("this user", userID);
-    //delete movie from firebase
+    //delete movie from the display but it will remain in the user DB firebase
+    // with a bolean key value pair of "Deleted" and true -ssk
     deleteMovie(userID, thisMovie);
     //repopulate page with new results
     populateAllPage(userID)
@@ -266,43 +268,24 @@ define(function(require) {
           getposter.requestData(sortedResults);
         });
     });
-    //--favorites page
+    //--favorites page listen for favorite button to be clicked 
+    // then get value of the range and send it to get poster to call API and
+    // compare the value of the range with the rating of the movie.  Send back the matches - ssk
+
     $("#favorites-filter-button").click(function() {
       console.log("clicked favorites");
+       var range = $('#range').val();
+      console.log("this is the range value ", range);
+   
+    // ?????????????????????????????????
+
       var userid = userLogin.getUid();
-      favoriteMovies(userid)
+      favoriteMovies(userid, range)
         .then(function(data) {
           var sortedResults = _.sortBy(data, "Title");
           getposter.requestData(sortedResults);
         });
     });
 
-
-
-
-
-
 }); // end define function
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

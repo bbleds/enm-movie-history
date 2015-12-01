@@ -3,9 +3,15 @@ define(function(require) {
 	var Q = require("q");
 	var firebase = require("firebase");
 
-	//deletes movie from user's firebase collection
+	//Assigns a bolean value of true to the "Deleted" key 
+	// ??and then does not return that movie in the array?? -ssk
 	return function (userid, movieID) {
+	var deferred = Q.defer();
 		var ref = new Firebase("https://movie-history-enm.firebaseio.com/collections/" + userid + "/" + movieID);
-			ref.remove();
+			var movieRef = ref.child(movieID);
+			movieRef.update({
+				"Deleted": true
+			});
 		};
+
 });
